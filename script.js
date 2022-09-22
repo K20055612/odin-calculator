@@ -1,4 +1,9 @@
-var calculatorBody = document.querySelector('.calculator-body');
+const calculatorBody = document.querySelector('.calculator-body');
+const buttons = document.querySelectorAll(".calculator-button");
+const display = document.querySelector(".calculator-display");
+
+var displayString = "0";
+
 
 function add(number1, number2) {
     return number1 + number2;
@@ -30,3 +35,14 @@ function operate(operator, number1, number2) {
             break;
     }
 }
+
+function writeToDisplay(string) {
+    displayString += string;
+    display.textContent = displayString;
+    console.log(string);
+}
+
+Array.from(buttons).forEach(button => {
+    button.addEventListener("click", event => writeToDisplay(button.textContent));
+});
+
