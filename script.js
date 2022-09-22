@@ -1,8 +1,9 @@
 const calculatorBody = document.querySelector('.calculator-body');
 const buttons = document.querySelectorAll(".calculator-button");
 const display = document.querySelector(".calculator-display");
+const clearButton = document.querySelector('.calculator-clear-button');
 
-var displayString = "0";
+var displayString = "";
 
 
 function add(number1, number2) {
@@ -39,10 +40,15 @@ function operate(operator, number1, number2) {
 function writeToDisplay(string) {
     displayString += string;
     display.textContent = displayString;
-    console.log(string);
+}
+
+function clearDisplay() {
+    displayString = "";
+    display.textContent = "0";
 }
 
 Array.from(buttons).forEach(button => {
     button.addEventListener("click", event => writeToDisplay(button.textContent));
 });
 
+clearButton.addEventListener("click", event => clearDisplay());
