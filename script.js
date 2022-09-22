@@ -1,3 +1,5 @@
+var calculatorBody = document.querySelector('.calculator-body');
+
 function add(number1, number2) {
     return number1 + number2;
 }
