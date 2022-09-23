@@ -37,6 +37,9 @@ function operate(operator, number1, number2) {
 }
 
 function writeToDisplay(string) {
+    if(/[a-zA-Z]/g.test(displayString)) {
+        clearDisplay();
+    }
     if(displayString.length === 0){
         displayString += string;
     }
@@ -196,7 +199,7 @@ function tokenize(input) {
 
 function evaluateDisplay() {
     if(displayString.length !== 0) {
-        let result = evaluate(displayString);
+        let result = Math.round(evaluate(displayString) * 100) / 100;
         clearDisplay();
         writeToDisplay(result);
     }
