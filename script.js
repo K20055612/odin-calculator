@@ -3,10 +3,7 @@ const buttons = document.querySelectorAll(".calculator-button");
 const display = document.querySelector(".calculator-display");
 const operators = "+-*/";
 
-var leftOperand;
-var rightOperand;
 var displayString = "";
-
 
 function add(number1, number2) {
     return number1 + number2;
@@ -198,9 +195,11 @@ function tokenize(input) {
   }
 
 function evaluateDisplay() {
-    let result = evaluate(displayString);
-    clearDisplay();
-    writeToDisplay(result);
+    if(displayString.length !== 0) {
+        let result = evaluate(displayString);
+        clearDisplay();
+        writeToDisplay(result);
+    }
 }
 
 function getElementWithoutEventListeners(element) {
