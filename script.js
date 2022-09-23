@@ -209,7 +209,6 @@ function getElementWithoutEventListeners(element) {
     return new_element;
 }
 
-
 var clearButton = document.querySelector('.calculator-clear-button');
 clearButton = getElementWithoutEventListeners(clearButton);
 var equalsButton = document.querySelector('.calculator-equals-button');
@@ -222,4 +221,4 @@ Array.from(buttons).forEach(button => {
 
 clearButton.addEventListener("click", event => clearDisplay());
 
-equalsButton.addEventListener("click", event => console.log(evaluate(displayString)));
+equalsButton.addEventListener("click", event => console.log(evaluateDisplay(displayString)));
