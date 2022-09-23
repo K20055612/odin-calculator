@@ -2,7 +2,10 @@ const calculatorBody = document.querySelector('.calculator-body');
 const buttons = document.querySelectorAll(".calculator-button");
 const display = document.querySelector(".calculator-display");
 const clearButton = document.querySelector('.calculator-clear-button');
+const operators = "+-*/";
 
+var leftOperand;
+var rightOperand;
 var displayString = "";
 
 
@@ -38,7 +41,23 @@ function operate(operator, number1, number2) {
 }
 
 function writeToDisplay(string) {
-    displayString += string;
+    if(displayString.length === 0){
+        displayString += string;
+    }
+    else {
+        if(operators.includes(displayString.slice(-1))) {
+            if(operators.includes(string)) {
+                displayString = displayString.slice(0, -1) + string;
+            }
+            else {
+                displayString += string;  
+            }
+        }
+        else {
+            displayString += string;  
+        }
+    }
+    
     display.textContent = displayString;
 }
 
