@@ -42,6 +42,10 @@ function writeToDisplay(string) {
     }
     if(displayString.length === 0){
         displayString += string;
+        if(operators.includes(string)) {
+            clearDisplay();
+            return;
+        }
     }
     else {
         if(operators.includes(displayString.slice(-1))) {
