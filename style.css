@@ -60,3 +60,7 @@ body {
 .calculator-equals-button {
     background-color: #F5A34D;
 }
+
+.calculator-display-text {
+    overflow: clip;
+}

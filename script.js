@@ -1,6 +1,6 @@
 const calculatorBody = document.querySelector('.calculator-body');
 const buttons = document.querySelectorAll(".calculator-button");
-const display = document.querySelector(".calculator-display");
+const display = document.querySelector(".calculator-display-text");
 const operators = "+-*/";
 
 var displayString = "";
