@@ -2,6 +2,7 @@ const calculatorBody = document.querySelector('.calculator-body');
 const buttons = document.querySelectorAll(".calculator-button");
 const display = document.querySelector(".calculator-display-text");
 const operators = "+-*/";
+const digits = "0123456789";
 
 var displayString = "";
 
@@ -228,3 +229,15 @@ Array.from(buttons).forEach(button => {
 clearButton.addEventListener("click", event => clearDisplay());
 
 equalsButton.addEventListener("click", event => console.log(evaluateDisplay(displayString)));
+
+document.addEventListener('keypress', (event) => {
+    var name = event.key;
+    var code = event.code;
+    if(digits.includes(name) || operators.includes(name)) {
+        writeToDisplay(name);
+    }
+    if(name === "Enter") {
+        evaluateDisplay();
+    }
+    console.log(code);
+  }, false);
